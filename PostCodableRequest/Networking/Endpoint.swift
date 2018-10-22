@@ -15,12 +15,6 @@ protocol Endpoint {
     var path: String { get }
 }
 
-enum HTTPMethods: String {
-    
-    case post = "POST"
-    case get = "GET"
-}
-
 extension Endpoint {
     
     var urlComponents: URLComponents? {
@@ -43,7 +37,7 @@ extension Endpoint {
         do {
             request.httpBody = try JSONEncoder().encode(parameters)
         } catch let error {
-            print(APIError.postParametersDecodingFalure(description: "\(error)").customDescription)
+            print(APIError.postParametersEncodingFalure(description: "\(error)").customDescription)
             return nil
         }
         headers.forEach { request.addValue($0.header.value, forHTTPHeaderField: $0.header.field) }

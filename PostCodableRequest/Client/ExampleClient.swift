@@ -8,7 +8,8 @@
 
 import Foundation
 
-class ExampleClient: GenericAPIClient {
+// Dummy example
+class NarcosClient: GenericAPIClient {
     
     internal let session: URLSession
     
@@ -20,20 +21,46 @@ class ExampleClient: GenericAPIClient {
         self.init(configuration: .default)
     }
     
-//    func getReplies(from message: String, completion: @escaping (Result<YMBMLSmartReplyResult?, YMCAPIError>) -> ()) {
-//
-//        let parameter = Parameter(message: message)
-//        guard let request = YMBMLReplyEndpoint.autoReply.postRequest(parameters: parameter,
-//                                                                     headers: [YMCHTTPHeader.contentType("application/json")]) else { return }
-//
-//        fetch(with: request , decode: { json -> YMBMLSmartReplyResult? in
-//            guard let results = json as? YMBMLSmartReplyResult else { return  nil }
-//            return results
-//        }, completion: completion)
-//    }
-}
-//
-//struct Parameter: Encodable {
-//    let message: String
-//}
+    /// Fetch Narcs Characters by name
+    func fetchNarcs(id: String, completion: @escaping (Result<Narc?, APIError>) -> ()) {
+        
+        let parameter = NarcParameter(id: id)
+        guard let request = NarcosFeed.narcs.postRequest(parameters: parameter,
+                                                                     headers: [HTTPHeader.contentType("application/json")]) else { return }
 
+        fetch(with: request , decode: { json -> Narc? in
+            guard let results = json as? Narc else { return  nil }
+            return results
+        }, completion: completion)
+    }
+}
+
+// MODEL THAT WILL RETURN FROM REQUEST
+struct Narc: Decodable {
+    let name: String
+}
+
+/// MODEL PARAMETER REQUESTED FOR THE API
+struct NarcParameter: Encodable {
+    let id: String
+}
+
+/// ENDPOINT CONFORMANCE
+enum NarcosFeed {
+    case narcs
+    case police
+}
+
+extension NarcosFeed: Endpoint {
+    
+    var base: String {
+        return "https://api.narcos.org"
+    }
+    
+    var path: String {
+        switch self {
+        case .narcs: return "/3/narcs"
+        case .police: return "/3/police"
+        }
+    }
+}

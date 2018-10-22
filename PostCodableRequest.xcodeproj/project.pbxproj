@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092E2524217D8E9F00E6D78A /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092E2523217D8E9F00E6D78A /* HTTPMethods.swift */; };
 		1F580347217A31F80059CCC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F580346217A31F80059CCC3 /* AppDelegate.swift */; };
 		1F580349217A31F80059CCC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F580348217A31F80059CCC3 /* ViewController.swift */; };
 		1F58034C217A31F80059CCC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F58034A217A31F80059CCC3 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		092E2523217D8E9F00E6D78A /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
 		1F580343217A31F80059CCC3 /* PostCodableRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostCodableRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F580346217A31F80059CCC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F580348217A31F80059CCC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				1F58035D217A32840059CCC3 /* Result.swift */,
 				1F58035F217A32D50059CCC3 /* HTTPHeader.swift */,
 				1F580361217A32F90059CCC3 /* Endpoint.swift */,
+				092E2523217D8E9F00E6D78A /* HTTPMethods.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				1F580360217A32D50059CCC3 /* HTTPHeader.swift in Sources */,
 				1F580349217A31F80059CCC3 /* ViewController.swift in Sources */,
 				1F58035E217A32840059CCC3 /* Result.swift in Sources */,
+				092E2524217D8E9F00E6D78A /* HTTPMethods.swift in Sources */,
 				1F58035C217A32460059CCC3 /* APIError.swift in Sources */,
 				1F58035A217A322E0059CCC3 /* GenericAPIClient.swift in Sources */,
 				1F580347217A31F80059CCC3 /* AppDelegate.swift in Sources */,
